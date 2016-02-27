@@ -63,7 +63,7 @@
         );
         $('#loginModal').modal('hide');
 
-        channel = pusher.subscribe('threewords');
+        channel = pusher.subscribe('<?=PUSHER_CHANNEL; ?>');
         channel.bind('new_phrase', function(data)
         {
           newPhrase(data);

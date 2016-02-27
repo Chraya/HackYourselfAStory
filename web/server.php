@@ -20,7 +20,7 @@
   function SendToClients($event, $jsonData)
   {
     global $pusher;
-    $pusher->trigger('threewords', $event, $jsonData);
+    $pusher->trigger(PUSHER_CHANNEL, $event, $jsonData);
   }
 
   function GetSentence()
