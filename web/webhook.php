@@ -6,7 +6,7 @@
 
   $body = file_get_contents('php://input');
 
-  $expected_signature = hash_hmac('sha256', $body, $app_secret, false);
+  $expected_signature = hash_hmac('sha256', $body, PUSHER_APP_SECRET, false);
 
   if ($webhook_signature == $expected_signature)
   {
