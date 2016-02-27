@@ -37,7 +37,7 @@
       else if ($event['event_name'] == "client-submit_vote")
       {
         $mysqli->query("UPDATE suggestions SET `count` = `count` + 1" .
-        " WHERE `id` = " . $event['phraseid']));
+        " WHERE `id` = " . $event['phraseid']);
       }
     }
 
