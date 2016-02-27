@@ -19,7 +19,12 @@
 
       function newPhrase(data)
       {
-        // When the server asks for a new phrase (and delivers) the vote result
+        // When the server sends out a new phrase
+      }
+
+      function voteResult(data)
+      {
+        // When the server delivers the vote result
       }
 
       function voteRequest(data)
@@ -48,6 +53,11 @@
         channel.bind('new_phrase', function(data)
         {
           newPhrase(data);
+          console.log(data);
+        });
+        channel.bind('vote_result', function(data)
+        {
+          voteResult(data);
           console.log(data);
         });
         channel.bind('vote_request', function(data)
