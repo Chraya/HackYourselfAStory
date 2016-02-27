@@ -16,7 +16,7 @@
 
     foreach($payload['events'] as &$event)
     {
-      if ($event['event_name'] == "submit_phrase")
+      if ($event['event_name'] == "client-submit_phrase")
       {
         $result = $mysqli->query("SELECT * FROM suggestions WHERE
           threewords = '" . $mysqli->real_escape_string($event['phrase'])
@@ -34,7 +34,7 @@
             $mysqli->real_escape_string($event['phrase']) . ", 1)");
         }
       }
-      else if ($event['event_name'] == "submit_vote")
+      else if ($event['event_name'] == "client-submit_vote")
       {
         $mysqli->query("UPDATE suggestions SET `count` = `count` + 1" .
         " WHERE `id` = " . $event['phraseid']));

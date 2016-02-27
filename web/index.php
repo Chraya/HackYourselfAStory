@@ -16,6 +16,8 @@
       var pusher = null;
       var name = null;
       var channel = null;
+      var pusherEndpoint = 'https://api.pusherapp.com/apps/<?=PUSHER_APP_ID; ?>;/events';
+
 
       function newPhrase(data)
       {
@@ -30,6 +32,18 @@
       function voteRequest(data)
       {
         // When the server asks the users to vote (thus delivering all vote options)
+      }
+
+      function submitPhraseToServer(phrase)
+      {
+        var triggered = channel.trigger('client-submit_phrase',
+          { 'phrase' : phrase });
+      }
+
+      function submitVoteToServer(phraseId)
+      {
+        var triggered = channel.trigger('client-submit_phrase',
+          { 'phraseid' : phraseid });
       }
 
       function login()
