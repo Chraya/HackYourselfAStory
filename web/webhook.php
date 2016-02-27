@@ -6,11 +6,15 @@
 
   $body = file_get_contents('php://input');
 
+  error_log("php://input shows:" . $body . "\n");
+
   $expected_signature = hash_hmac('sha256', $body, PUSHER_APP_SECRET, false);
 
   if ($webhook_signature == $expected_signature)
   {
     $payload = json_decode($body, true);
+
+    error_log("Payload dump: " . var_dump($payload) . "\n");
 
     $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
