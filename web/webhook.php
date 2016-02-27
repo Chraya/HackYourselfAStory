@@ -14,7 +14,7 @@
 
     $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-    foreach($payload['events'] as &$event)
+    foreach($payload['events'] as $event)
     {
       error_log("Received: " . var_dump($event) . "\n");
       if ($event['event_name'] == "client-submit_phrase")
