@@ -1,5 +1,11 @@
 body
 {
     background: url("img/Background.jpg");
-    background-size: 800px 600px;
+    background-size: 1600px 1000px;
+    background-repeat: no-repeat;
+    padding-top: 40px;
+}
+h1
+{
+  font-family: "Times New Roman", Times, serif;
 }

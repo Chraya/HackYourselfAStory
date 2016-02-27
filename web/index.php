@@ -3,7 +3,7 @@
   <head>
     <title>Hack Yourself a Story</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
-    <link href="css/styles.css">
+    <link href="css/styles.css" rel="stylesheet">
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
     <script>
       Pusher.log = function(message)
@@ -31,9 +31,8 @@
           <li class="nav-item active">
             <a class="nav-link" href="index.html">Home</a>
             <li class="nav-item active">
-              <a class="nav-link" href="profile.html">Profile</a>
+              <a class="nav-link" href="profile.html">About Us</a>
             </li>
-          </li>
         </ul>
       </div>
       <div class = "container">
