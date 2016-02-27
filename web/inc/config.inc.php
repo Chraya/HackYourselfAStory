@@ -13,4 +13,5 @@
   require(dirname(__FILE__) . "/../conf/pushersecret.php"); // Include the Pusher secret from another file
   define("PUSHER_APP_ID", "183533");
   define("PUSHER_APP_KEY", "7d0b4730386735df8793");
+  define("PUSHER_CHANNEL", "private-threewords");
 ?>
