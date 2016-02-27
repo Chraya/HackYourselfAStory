@@ -23,6 +23,18 @@
     </script>
   </head>
   <body>
-
+    <nav class="navbar navbar-dark navbar-fixed-top bg-primary">
+      <div class="container">
+        <a class="navbar-brand">Hack Yourself a Story!</a>
+        <ul class="nav navbar-nav pull-right">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="profile.html">Profile</a>
+            </li>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </body>
 </html>
