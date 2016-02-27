@@ -25,7 +25,7 @@
 
     $result = $mysqli->query("SELECT starts.* FROM (SELECT FLOOR (RAND() *
       (SELECTcount(*) FROM starts)) num ,@num:=@num+1 from (SELECT @num:=0)
-      a , starts LIMIT 1) b ,  starts WHERE b.num=starts.id;")
+      a , starts LIMIT 1) b ,  starts WHERE b.num=starts.id;");
 
     // $range_row = $mysqli->fetch_object($range_result);
     // $random = mt_rand($range_row->min_id, $range_row->max_id);
