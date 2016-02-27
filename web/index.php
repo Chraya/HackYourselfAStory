@@ -32,12 +32,12 @@
           }
         );
         $('#loginModal').modal('hide');
-        
+
         $.bootstrapGrowl("Welcome, " + name + "!",
         {
           ele: 'body',
-          type: 'info',
-          offset: { from: 'top', amount: 20 },
+          type: 'success',
+          offset: { from: 'top', amount: 60 },
           align: 'right',
           width: 250,
           delay: 3000,
