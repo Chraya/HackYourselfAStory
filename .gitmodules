@@ -1,0 +1,3 @@
+[submodule "web/inc/pusher"]
+	path = web/inc/pusher
+	url = https://github.com/pusher/pusher-http-php
