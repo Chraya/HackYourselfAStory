@@ -18,13 +18,13 @@
       function login()
       {
         var name = $('#nickname').val();
-        pusher = new Pusher(<?=PUSHER_APP_KEY; ?>,
+        pusher = new Pusher('<?=PUSHER_APP_KEY; ?>',
           {
             authTransport: 'client',
             clientAuth:
             {
-              key: <?=PUSHER_APP_KEY; ?>,
-              secret: <?=PUSHER_APP_SECRET; ?>,
+              key: '<?=PUSHER_APP_KEY; ?>',
+              secret: '<?=PUSHER_APP_SECRET; ?>',
               user_id: name,
               user_info: {}
             }
