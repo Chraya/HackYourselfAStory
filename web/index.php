@@ -102,6 +102,16 @@
         </ul>
       </div>
     </nav>
+    <div class= "container">
+      <div class= "jumbotron">
+        <h1> The story goes here....</h1>
+      </div>
+    </div>
+    <div class= "container">
+      <div class= "jumbotron">
+        <h1> The story goes here....</h1>
+      </div>
+    </div>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
