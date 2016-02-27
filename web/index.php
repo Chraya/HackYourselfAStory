@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Hack Yourself a Story</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
     <script>
       Pusher.log = function(message)
