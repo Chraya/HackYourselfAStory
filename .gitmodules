@@ -1,3 +1,6 @@
 [submodule "web/inc/pusher"]
 	path = web/inc/pusher
 	url = https://github.com/pusher/pusher-http-php
+[submodule "web/js/bootstrap-growl"]
+	path = web/js/bootstrap-growl
+	url = https://github.com/ifightcrime/bootstrap-growl

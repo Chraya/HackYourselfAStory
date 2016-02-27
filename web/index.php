@@ -11,13 +11,14 @@
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/leggetter/pusher-js-client-auth/master/dist/pusher-js-client-auth.js"></script>
-
+    <script src="js/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
     <script>
       var pusher = null;
+      var name = null;
 
       function login()
       {
-        var name = $('#nickname').val();
+        name = $('#nickname').val();
         pusher = new Pusher('<?=PUSHER_APP_KEY; ?>',
           {
             authTransport: 'client',
@@ -31,6 +32,18 @@
           }
         );
         $('#loginModal').modal('hide');
+        
+        $.bootstrapGrowl("Welcome, " + name + "!",
+        {
+          ele: 'body',
+          type: 'info',
+          offset: { from: 'top', amount: 20 },
+          align: 'right',
+          width: 250,
+          delay: 3000,
+          allow_dismiss: true,
+          stackup_spacing: 10
+        });
       }
 
 
