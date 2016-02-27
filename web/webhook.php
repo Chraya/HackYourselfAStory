@@ -12,6 +12,8 @@
 
   if ($webhook_signature == $expected_signature)
   {
+    error_log("Signature check succeeded\n");
+
     $payload = json_decode($body, true);
 
     error_log("Payload dump: " . var_dump($payload) . "\n");
