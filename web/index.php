@@ -30,6 +30,7 @@
             }
           }
         );
+        $('#loginModal').modal('hide');
       }
 
 
@@ -72,11 +73,11 @@
             </li>
         </ul>
       </div>
-      <div class="container">
+      <!-- <div class="container">
         <br>
         <h1 align="center">Choose The Words!</h1>
         <br>
-      </div>
+      </div> -->
     </nav>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
