@@ -1,5 +1,5 @@
 <?php
-  require(dirname(__FILE__) . "/inc/confic.inc.php");
+  require(dirname(__FILE__) . "/inc/config.inc.php");
 
   $app_key = $_SERVER['HTTP_X_PUSHER_KEY'];
   $webhook_signature = $_SERVER['HTTP_X_PUSHER_SIGNATURE'];
