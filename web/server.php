@@ -11,6 +11,12 @@
     array('encrypted' => true)
   );
 
+  function endsWith($haystack, $needle)
+  {
+    // search forward starting from end minus needle length characters
+    return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
+  }
+
   function SendToClients($event, $jsonData)
   {
     global $pusher;
@@ -34,7 +40,7 @@
   while(1)
   {
     global $mysqli;
-    $sentence = GetSentence();
+    $sentence = GetSentence() . " ";
     while(str_word_count($sentence) < 30)
     {
       SendToClients('new_phrase', "{'phrase': '" . $sentence . "'}");
@@ -54,7 +60,10 @@
 
       $top = $result->fetch_array(MYSQLI_ASSOC);
 
-      $sentence .= " " .$top['threewords'];
+      if (!endsWith($sentence, " "))
+        $sentence .= " ";
+
+      $sentence .= $top['threewords'];
 
       SendToClients("vote_result", json_encode(
         array(
