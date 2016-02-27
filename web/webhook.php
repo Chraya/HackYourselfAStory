@@ -26,7 +26,7 @@
         {
           $row = $result->fetch_array(MYSQLI_ASSOC);
           $mysqli->query("UPDATE suggestions SET `count` = `count` + 1" .
-          " WHERE `id` = " . $row['id']));
+          " WHERE `id` = " . $row['id']);
         }
         else
         {
