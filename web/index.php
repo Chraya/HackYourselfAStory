@@ -7,6 +7,7 @@
     <title>Hack Yourself a Story</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/font-awesome-4.5.0.css" rel="stylesheet">
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -115,28 +116,44 @@
     <div class= "container">
       <div class= "jumbotron">
         <h1> The story goes here....</h1>
+        <br>
+        <br>
+        <br>
+        <br>
       </div>
     </div>
     <div class= "container">
       <div class= "jumbotron">
-        <div class ="col-md-4">
-          <p>Vote1</p>
-          <p>Vote1</p>
-          <p>Vote1</p>
-          <p>Vote1</p>
+        <div class="scroll">
+          <div class ="col-md-4">
+            <a href="obj1">
+            <p>Vote1</p>
+            </a>
+            <p>Vote1</p>
+            <p>Vote1</p>
+            <p>Vote1</p>
+            <p>Vote1</p>
+            <p>Vote1</p>
+            <p>Vote1</p>
+          </div>
+          <div class ="col-md-4">
+            <p>Vote1</p>
+            <p>Vote1</p>
+            <p>Vote1</p>
+            <p>Vote1</p>
+          </div>
+          <div class ="col-md-4">
+            <p>Vote1</p>
+            <p>Vote1</p>
+            <p>Vote1</p>
+            <p>Vote1</p>
+          </div>
         </div>
-        <div class ="col-md-4">
-          <p>Vote1</p>
-          <p>Vote1</p>
-          <p>Vote1</p>
-          <p>Vote1</p>
-        </div>
-        <div class ="col-md-4">
-          <p>Vote1</p>
-          <p>Vote1</p>
-          <p>Vote1</p>
-          <p>Vote1</p>
-        </div>
+      </div>
+    </div>
+    <div>
+      <div class = "jumbotron">
+        <i class="fa fa-facebook"></i>
       </div>
     </div>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
