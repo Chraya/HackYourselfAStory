@@ -109,7 +109,24 @@
     </div>
     <div class= "container">
       <div class= "jumbotron">
-        <h1> The story goes here....</h1>
+        <div class ="col-md-4">
+          <p>Vote1</p>
+          <p>Vote1</p>
+          <p>Vote1</p>
+          <p>Vote1</p>
+        </div>
+        <div class ="col-md-4">
+          <p>Vote1</p>
+          <p>Vote1</p>
+          <p>Vote1</p>
+          <p>Vote1</p>
+        </div>
+        <div class ="col-md-4">
+          <p>Vote1</p>
+          <p>Vote1</p>
+          <p>Vote1</p>
+          <p>Vote1</p>
+        </div>
       </div>
     </div>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
