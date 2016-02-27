@@ -4,8 +4,8 @@
   //
   require(dirname(__FILE__) . "/../conf/dbpasswd.php"); // Include the database password from another file
   define("DB_HOST", "localhost");
-  define("DB_USERNAME", "HackYourselfAStory");
-  define("DB_DATABASE", "HackYourselfAStory");
+  define("DB_USERNAME", "hackastory");
+  define("DB_DATABASE", "hackyourselfastory");
 
   //
   // Pusher config
