@@ -2,9 +2,9 @@
   require(dirname(__FILE__) . "/inc/config.inc.php");
   require( dirname(__FILE__) . "/inc/pusher/lib/Pusher.php");
 
-  global $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+  $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-  global $pusher = new Pusher(
+  $pusher = new Pusher(
     PUSHER_APP_KEY,
     PUSHER_APP_SECRET,
     PUSHER_APP_ID,
@@ -13,11 +13,13 @@
 
   function SendToClients($event, $jsonData)
   {
+    global $pusher;
     $pusher->trigger('threewords', $event, $jsonData);
   }
 
   function GetSentence()
   {
+    global $mysqli;
     $range_result = $mysqli->query("SELECT MAX(`id`) AS max_id,
       MIN(`id`) AS min_id FROM starts");
 
@@ -35,6 +37,7 @@
 
   while(1)
   {
+    global $mysqli;
     $sentence = GetSentence();
     while(str_word_count($sentence) < 30)
     {
