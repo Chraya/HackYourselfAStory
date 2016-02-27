@@ -16,6 +16,7 @@
 
     foreach($payload['events'] as &$event)
     {
+      error_log("Received: " . var_dump($event) . "\n");
       if ($event['event_name'] == "client-submit_phrase")
       {
         $result = $mysqli->query("SELECT * FROM suggestions WHERE
