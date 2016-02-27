@@ -38,7 +38,7 @@
     $sentence = $data['text'];
     while(str_word_count($sentence) < 30)
     {
-      SendToClients('new_phrase', "{'phrase': '" . $sentence . "'}")
+      SendToClients('new_phrase', "{'phrase': '" . $sentence . "'}");
       sleep(10);
       $request = $mysqli->query("SELECT * FROM suggestions");
       $suggestions = array("suggessions" => array());
@@ -48,7 +48,7 @@
       }
       SendToClients('vote_request', json_encode($suggestions));
       sleep(10);
-      
+
     }
 
 
