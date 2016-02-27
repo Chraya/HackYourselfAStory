@@ -15,6 +15,17 @@
     <script>
       var pusher = null;
       var name = null;
+      var channel = null;
+
+      function newPhrase(data)
+      {
+        // When the server asks for a new phrase (and delivers) the vote result
+      }
+
+      function voteRequest(data)
+      {
+        // When the server asks the users to vote (thus delivering all vote options)
+      }
 
       function login()
       {
@@ -33,6 +44,18 @@
         );
         $('#loginModal').modal('hide');
 
+        channel = pusher.subscribe('threewords');
+        channel.bind('new_phrase', function(data)
+        {
+          newPhrase(data);
+          console.log(data);
+        });
+        channel.bind('vote_request', function(data)
+        {
+          voteRequest(data);
+          console.log(data);
+        });
+        
         $.bootstrapGrowl("Welcome, " + name + "!",
         {
           ele: 'body',
@@ -64,14 +87,6 @@
         }
       };
 
-
-      // var pusher = new Pusher('7d0b4730386735df8793',
-      // {
-      //   encrypted: true
-      // });
-
-      // var channel = pusher.subscribe('threewords');
-      // channel.bind('')
     </script>
   </head>
   <body>
@@ -86,11 +101,6 @@
             </li>
         </ul>
       </div>
-      <!-- <div class="container">
-        <br>
-        <h1 align="center">Choose The Words!</h1>
-        <br>
-      </div> -->
     </nav>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
