@@ -24,7 +24,7 @@
     </script>
   </head>
   <body>
-    <nav class="navbar navbar-dark navbar-fixed-top bg-primary">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent navbar-inverse">
       <div class="container">
         <a class="navbar-brand">Hack Yourself a Story!</a>
         <ul class="nav navbar-nav pull-right">
