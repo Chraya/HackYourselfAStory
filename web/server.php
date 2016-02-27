@@ -20,24 +20,16 @@
   function GetSentence()
   {
     global $mysqli;
-    // $range_result = $mysqli->query("SELECT MAX(`id`) AS max_id,
-    //   MIN(`id`) AS min_id FROM starts");
 
     $result = $mysqli->query("SELECT starts.* FROM (SELECT FLOOR (RAND() *
       (SELECT count(*) FROM starts)) num ,@num:=@num+1 from (SELECT @num:=0)
-      a , starts LIMIT 1) b ,  starts WHERE b.num=starts.id;") or trigger_error($mysqli->error);
-
-    // $range_row = $mysqli->fetch_object($range_result);
-    // $random = mt_rand($range_row->min_id, $range_row->max_id);
-
-    // $result = $mysqli->query("SELECT * FROM starts WHERE
-    //   id >= $random LIMIT 0,1");
+      a , starts LIMIT 1) b ,  starts WHERE b.num=starts.id;")
+        or trigger_error($mysqli->error);
 
     $data = $result->fetch_array(MYSQLI_ASSOC);
 
     return $data['text'];
   }
-
 
   while(1)
   {
@@ -51,14 +43,29 @@
       $suggestions = array("suggessions" => array());
       while ($row = $request->fetch_array(MYSQLI_ASSOC))
       {
-        $suggestions['suggestions'][] = $row['threewords'];
+        $suggestions['suggestions'][$row['id'] = $row['threewords'];
       }
+
       SendToClients('vote_request', json_encode($suggestions));
       sleep(10);
 
+      $result = $mysqli->query("SELECT * FROM suggestions ORDER BY count
+        DESC LIMIT 1");
+
+      $top = $result->fetch_array(MYSQLI_ASSOC);
+
+      $sentence .= " " .$top['threewords'];
+
+      SendToClients("vote_result", json_encode(
+        array(
+          "sentence"    => $sentence,
+          "winningtext" => $top['threewords']
+            )
+          )
+        );
+
+      sleep(5);
     }
-
-
   }
 
 
