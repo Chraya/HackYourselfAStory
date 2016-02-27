@@ -2,9 +2,9 @@
   require(dirname(__FILE__) . "/inc/config.inc.php");
   require( dirname(__FILE__) . "/inc/pusher/lib/Pusher.php");
 
-  $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+  global $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-  $pusher = new Pusher(
+  global $pusher = new Pusher(
     PUSHER_APP_KEY,
     PUSHER_APP_SECRET,
     PUSHER_APP_ID,
@@ -35,7 +35,7 @@
 
   while(1)
   {
-    $sentence = $data['text'];
+    $sentence = GetSentence();
     while(str_word_count($sentence) < 30)
     {
       SendToClients('new_phrase', "{'phrase': '" . $sentence . "'}");
