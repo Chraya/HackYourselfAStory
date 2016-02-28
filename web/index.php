@@ -68,6 +68,14 @@
           submitPhraseToServer(entry);
           $('#phraseInputSubmit').attr('disabled', true);
         });
+
+        $('#loginModal').on('hidden.bs.modal', function()
+        {
+          if (name == null || name == "" || name == undefined)
+          {
+            $('#loginModal').modal('show');
+          }
+        });
       });
 
       function newPhrase(data)
