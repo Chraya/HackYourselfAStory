@@ -17,6 +17,7 @@
       var pusher = null;
       var name = null;
       var channel = null;
+      var presenceChannel = null;
       var pusherEndpoint = 'https://api.pusherapp.com/apps/<?=PUSHER_APP_ID; ?>/events';
 
       var voted = false;
@@ -149,7 +150,7 @@
 
         customGrowl("Welcome, " + name + "!");
 
-        var presenceChannel = pusher.subscribe('presence-threewords');
+        presenceChannel = pusher.subscribe('presence-threewords');
         presenceChannel.bind('pusher:subscription_succeeded', function(members)
         {
           ('#onlineCount').html("0");
@@ -160,20 +161,19 @@
           });
         });
 
-        channel.bind('pusher:member_added', function(member)
+        presenceChannel.bind('pusher:member_added', function(member)
         {
           customGrowl(member + " has come online");
           console.log(member + " came online");
           $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) + 1);
         });
 
-        channel.bind('pusher:member_removed', function(member)
+        presenceChannel.bind('pusher:member_removed', function(member)
         {
           customGrowl(member + " has left");
           console.log(member + " left");
           $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) - 1);
         });
-
       }
 
       $(document).ready(function()
