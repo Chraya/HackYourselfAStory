@@ -26,7 +26,7 @@
 
     $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-    foreach($payload['events'] as $event)
+    foreach($payload['events'] as &$event)
     {
       $data = json_decode($event['data'], true);
       error_log("Received: " . var_dump_err($event) . "\n");
