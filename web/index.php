@@ -317,7 +317,9 @@
       </div>
     </div>
     <div class="container align-middle align-bottom">
+      <a href="https://www.facebook.com/talesAgainstHumanity">
       <i class="fa fa-facebook" style="font-size:48px"></i>
+    </a>
       <i class="fa fa-github" style="font-size:48px"></i>
     </div>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
