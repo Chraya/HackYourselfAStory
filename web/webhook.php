@@ -34,11 +34,11 @@
       error_log("Received: " . var_dump_err($event) . "\n");
       if ($event['event'] == "client-submit_phrase")
       {
-        error_log("Client submission - " . $data['phrase'] . "\n");
+        $submission = $mysqli->real_escape_string(data['phrase']);
+        error_log("Client submission - " . $submission . "\n");
 
         $result = $mysqli->query("SELECT * FROM suggestions WHERE
-          threewords = '" . $mysqli->real_escape_string($data['phrase'])
-          . "'");
+          threewords = '" . $submission . "'");
 
         if ($result->num_rows > 0)
         {
@@ -50,7 +50,7 @@
         {
           $query = "INSERT INTO suggestions VALUES(NULL, " .
             $mysqli->real_escape_string($data['phrase']) . ", 1)";
-            
+
           var_dump("About to run " . $query . "\n");
           $mysqli->query($query);
         }
