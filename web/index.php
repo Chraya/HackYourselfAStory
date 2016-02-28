@@ -24,7 +24,9 @@
         $('body').on('click', '.voteLink', function(event)
         {
           event.preventDefault();
-          submitVoteToServer(event.target.id);
+          var id = event.target.id;
+          console.log("Voting for " + id);
+          submitVoteToServer(id);
         });
 
         $('body').on('click', '#phraseInputSubmit', function(event)
@@ -86,7 +88,7 @@
       function submitVoteToServer(phraseId)
       {
         var triggered = channel.trigger('client-submit_vote',
-          { 'phraseid' : phraseid });
+          { 'phraseid' : phraseId });
       }
 
       function login()
