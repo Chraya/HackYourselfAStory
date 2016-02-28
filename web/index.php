@@ -315,14 +315,13 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
             <h4 class="modal-title">Choose a Nickname</h4>
           </div>
           <div class="modal-body">
             <div class="container">
               <h2>Please choose a nickname</h2>
               <div class="col-md-12">
-                <form class="form-inline" id="nicknameForm">
+                <form class="form-inline" id="nicknameForm" onsubmit="return false;">
                   <div class="form-group">
                     <input type="text" id="nickname" maxlength="64" class="form-control" placeholder="Enter a Nickname" />
                   </div>
