@@ -35,7 +35,7 @@
       if ($event['event'] == "client-submit_phrase")
       {
         $submission = $mysqli->real_escape_string($data['phrase']);
-        error_log("Client submission - " . $submission . "\n");
+        //error_log("Client submission - " . $submission . "\n");
 
         $result = $mysqli->query("SELECT * FROM suggestions WHERE
           threewords = '" . $submission . "'");
