@@ -201,7 +201,8 @@
         });
         $('#play').click(function()
         {
-          login();
+          if ($('#nickname').val() != null && $('#nickname').val() != "")
+            login();
         });
       });
 
