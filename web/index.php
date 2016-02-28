@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hack Yourself a Story</title>
+    <title>Tales Against Humanity</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
@@ -305,7 +305,7 @@
             <h3>
               Suggest your own three word phrase below, then vote for
               the funniest by clicking on it. Collectively hack yourself
-              a story together! 
+              a story together!
             </h3>
             <div id="voteLinkDiv"></div>
           </div>
