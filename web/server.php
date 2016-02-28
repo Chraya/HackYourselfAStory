@@ -46,13 +46,13 @@
       SendToClients('new_phrase', "{'phrase': '" . $sentence . "'}");
       sleep(10);
       $request = $mysqli->query("SELECT * FROM suggestions");
-      $suggestions = array("suggessions" => array());
+      $suggestions = array();
       while ($row = $request->fetch_array(MYSQLI_ASSOC))
       {
-        $suggestions['suggestions'][intval($row['id'])] = $row['threewords'];
+        $suggestions[intval($row['id'])] = $row['threewords'];
       }
 
-      SendToClients('vote_request', json_encode($suggestions));
+      SendToClients('vote_request', json_encode(array("suggestions" -> $suggestions)));
       sleep(10);
 
       $result = $mysqli->query("SELECT * FROM suggestions ORDER BY count
