@@ -53,7 +53,7 @@
         $suggestions[$id] = $row['threewords'];
       }
 
-      SendToClients('vote_request', json_encode(array("suggestions" => $suggestions)));
+      SendToClients('vote_request', json_encode(array("suggestions" => $suggestions), JSON_NUMERIC_CHECK));
       sleep(10);
 
       $result = $mysqli->query("SELECT * FROM suggestions ORDER BY count
