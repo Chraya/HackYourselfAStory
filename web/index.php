@@ -320,7 +320,9 @@
       <a href="https://www.facebook.com/talesAgainstHumanity">
       <i class="fa fa-facebook" style="font-size:48px"></i>
     </a>
+    <a href="https://github.com/Chraya/HackYourselfAStory">
       <i class="fa fa-github" style="font-size:48px"></i>
+    </a>
     </div>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
