@@ -67,7 +67,7 @@
           $('#phraseInputSubmit').attr('disabled', true);
         });
 
-        $('#loginModal').on('hidden.bs.modal', function()
+        $('#loginModal').on('hidden.bs.modal', function(e)
         {
           console.log("Closed that thing");
           if (name == null || name == "" || name == undefined)
