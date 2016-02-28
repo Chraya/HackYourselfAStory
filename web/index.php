@@ -258,6 +258,10 @@
           return false;
         }
       });
+      $('#nicknameForm').submit(function()
+      {
+        return false;
+      });
 
       Pusher.log = function(message)
       {
