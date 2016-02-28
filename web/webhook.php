@@ -50,6 +50,7 @@
         }
         else
         {
+          error_log("Nothing found....\n");
           $query = "INSERT INTO suggestions VALUES(NULL, " .
             $mysqli->real_escape_string($data['phrase']) . ", 1)";
 
