@@ -92,11 +92,11 @@
         var obj = JSON.parse(data);
         console.dir(obj);
         var suggestions = obj['suggestions'];
-        var html = "";
+        var html = "// ";
         for (var key in suggestions)
         {
           html = html + '<a href="#" id="' + key + '" class="voteLink">'
-            + suggestions[key] + '</a><br>';
+            + suggestions[key] + '</a> // ';
         }
         $('#voteLinkDiv').html(html);
       }
@@ -208,47 +208,20 @@
         </ul>
       </div>
     </nav>
-    <div class= "container">
+    <div class="container">
       <div class="jumbotron">
         <h3 id="StoryPlaceholder"></h3>
-        <br>
-        <br>
-        <br>
-        <br>
       </div>
     </div>
     <div class= "container">
-      <div class= "jumbotron">
-        <div class="scroll">
-          <div id="voteLinkDiv"></div>
-          <!-- <div class ="col-md-4">
-            <a href="obj1">
-            <p>Vote1</p>
-            </a>
-            <p>Vote1</p>
-            <p>Vote1</p>
-            <p>Vote1</p>
-            <p>Vote1</p>
-            <p>Vote1</p>
-            <p>Vote1</p>
+      <div class="jumbotron">
+          <div class="container">
+            <div id="voteLinkDiv"></div>
           </div>
-          <div class ="col-md-4">
-            <p>Vote1</p>
-            <p>Vote1</p>
-            <p>Vote1</p>
-            <p>Vote1</p>
-          </div>
-          <div class ="col-md-4">
-            <p>Vote1</p>
-            <p>Vote1</p>
-            <p>Vote1</p>
-            <p>Vote1</p>
-          </div>
-        </div> -->
       </div>
     </div>
     <div>
-      <div class = "jumbotron">
+      <div class="jumbotron">
         <h4><span id="onlineCount">0</span> people online.</h4>
       </div>
     </div>
