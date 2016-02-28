@@ -15,8 +15,6 @@
   $body = file_get_contents('php://input');
 
   error_log("php://input shows:" . $body . "\n");
-  error_log("Then strip... \n" . stripslashes($body) . "\n");
-  $body = stripslashes($body);
 
   $expected_signature = hash_hmac('sha256', $body, PUSHER_APP_SECRET, false);
 
@@ -25,6 +23,7 @@
     error_log("Signature check succeeded\n");
 
     $payload = json_decode($body, true);
+    error_log("JSON Error: " . json_last_error_msg() . "\n");
     error_log(var_dump_err($payload));
 
     $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
