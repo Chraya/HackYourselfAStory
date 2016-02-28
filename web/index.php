@@ -27,7 +27,7 @@
           submitVoteToServer(event.target.id);
         });
 
-        $('button').on('click', '.phraseInputSubmit', function(event)
+        $('button').on('click', 'button.phraseInputSubmit', function(event)
         {
           event.preventDefault();
           var entry = $('#phraseInputBox').val();
@@ -46,7 +46,7 @@
         <form id="phraseForm" class="form-inline">                            \
           <div class="form-group">                                            \
             <input type="text" class="form-control" id="phraseInputBox" />    \
-            <button type="button" class="phraseInputSubmit" class="form-control">\
+            <button type="button" class="form-control phraseInputSubmit btn">\
               Suggest &raquo;                                                 \
             </button>                                                         \
           </div>                                                              \
