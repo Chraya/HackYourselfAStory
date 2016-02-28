@@ -175,7 +175,8 @@
         {
           customGrowl(member['user_id'] + " has come online");
           console.log(member['user_id'] + " came online");
-          $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) + 1);
+          if (member['user_id'] != name)
+            $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) + 1);
         });
 
         presenceChannel.bind('pusher:member_removed', function(member)
