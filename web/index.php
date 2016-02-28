@@ -64,6 +64,21 @@
         $('body').on('click', '.voteLink', function(event)
         {
           event.preventDefault();
+          $('#controlArea').block(
+            {
+              message: "Voted",
+              css:
+              {
+                border: 'none',
+                padding: '15px',
+                backgroundColor: '#000',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                opacity: .5,
+                color: '#fff'
+              }
+            }
+          );
           var id = event.target.id;
           console.log("Voting for " + id);
           if(!voted)
