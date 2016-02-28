@@ -13,6 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://cdn.rawgit.com/leggetter/pusher-js-client-auth/master/dist/pusher-js-client-auth.js"></script>
     <script src="js/bootstrap-growl/jquery.bootstrap-growl.min.js"></script>
+    <script src="js/jquery.blockUI.js"></script>
     <script>
       var pusher = null;
       var name = null;
@@ -176,11 +177,13 @@
           var obj = JSON.parse(data);
           if (obj['action'] == "lock")
           {
-            $('#controlArea').attr('disabled', true);
+            console.log("Lock signal received");
+            $('#controlArea').block( { message: null });
           }
           else
           {
-            $('#controlArea').removeAttr('disabled');
+            console.log("Unlock signal received");
+            $('#controlArea').unblock();
           }
         });
 
