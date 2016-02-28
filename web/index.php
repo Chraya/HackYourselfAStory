@@ -7,6 +7,11 @@
     <title>Hack Yourself a Story</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
+<<<<<<< HEAD
+    <link href="css/font-awesome-4.5.0.css" rel="stylesheet">
+    <link href="css/font-awesome-4.5.0.min.css" rel="stylesheet">
+=======
+>>>>>>> 7aef038911cbe20164d09af976f3e0f2ecdb3621
     <link href="css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -157,7 +162,7 @@
           voteRequest(data);
           console.log(data);
         });
-        
+
         customGrowl("Welcome, " + name + "!");
 
         presenceChannel = pusher.subscribe('presence-threewords');
