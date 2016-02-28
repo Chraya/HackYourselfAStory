@@ -24,6 +24,8 @@
       function newPhrase(data)
       {
         // When the server sends out a new phrase
+        var obj = JSON.parse(data);
+        $('#StoryPlaceholder').html(obj['phrase']);
       }
 
       function voteResult(data)
@@ -129,8 +131,8 @@
       </div>
     </nav>
     <div class= "container">
-      <div class= "jumbotron">
-        <h1> The story goes here....</h1>
+      <div class="jumbotron">
+        <h3 id="StoryPlaceholder"></h3>
         <br>
         <br>
         <br>
