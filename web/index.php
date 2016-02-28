@@ -218,16 +218,16 @@
         presenceChannel.bind('pusher:member_added', function(member)
         {
           console.dir(member);
-          customGrowl(member['user_id'] + " has come online");
-          console.log(member['user_id'] + " came online");
+          customGrowl(member['id'] + " has come online");
+          console.log(member['id'] + " came online");
           if (member['user_id'] != name)
             $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) + 1);
         });
 
         presenceChannel.bind('pusher:member_removed', function(member)
         {
-          customGrowl(member['user_id'] + " has left");
-          console.log(member['user_id'] + " left");
+          customGrowl(member['id'] + " has left");
+          console.log(member['id'] + " left");
           $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) - 1);
         });
       }
