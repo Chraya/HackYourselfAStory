@@ -34,7 +34,7 @@
       error_log("Received: " . var_dump_err($event) . "\n");
       if ($event['event'] == "client-submit_phrase")
       {
-        $submission = $mysqli->real_escape_string(data['phrase']);
+        $submission = $mysqli->real_escape_string($data['phrase']);
         error_log("Client submission - " . $submission . "\n");
 
         $result = $mysqli->query("SELECT * FROM suggestions WHERE
