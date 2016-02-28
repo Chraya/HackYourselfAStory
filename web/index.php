@@ -20,6 +20,14 @@
       var channel = null;
       var pusherEndpoint = 'https://api.pusherapp.com/apps/<?=PUSHER_APP_ID; ?>/events';
 
+      $(document).ready(function()
+      {
+        $('.voteLink').click(function(event)
+        {
+          event.preventDefault();
+          submitVoteToServer(event.target.id);
+        });
+      });
 
       function newPhrase(data)
       {
@@ -38,6 +46,13 @@
         // When the server asks the users to vote (thus delivering all vote options)
         var obj = JSON.parse(data);
         console.dir(obj);
+        var suggestions = obj['suggestions'];
+        var html = "";
+        for (var key in suggestions)
+        {
+          html = html + '<a id="' + key + '" class="voteLink">'
+            + suggestions[key] + '</a>';
+        }
       }
 
       function submitPhraseToServer(phrase)
@@ -144,7 +159,8 @@
     <div class= "container">
       <div class= "jumbotron">
         <div class="scroll">
-          <div class ="col-md-4">
+          <div id="voteLinkDiv"></div>
+          <!-- <div class ="col-md-4">
             <a href="obj1">
             <p>Vote1</p>
             </a>
@@ -167,7 +183,7 @@
             <p>Vote1</p>
             <p>Vote1</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div>
