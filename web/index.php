@@ -53,6 +53,7 @@
           html = html + '<a id="' + key + '" class="voteLink">'
             + suggestions[key] + '</a>';
         }
+        $('#voteLinkDiv').html(html);
       }
 
       function submitPhraseToServer(phrase)
