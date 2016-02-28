@@ -48,8 +48,11 @@
         }
         else
         {
-          $mysqli->query("INSERT INTO suggestions VALUES(NULL, " .
-            $mysqli->real_escape_string($data['phrase']) . ", 1)");
+          $query = "INSERT INTO suggestions VALUES(NULL, " .
+            $mysqli->real_escape_string($data['phrase']) . ", 1)";
+            
+          var_dump("About to run " . $query . "\n");
+          $mysqli->query($query);
         }
       }
       else if ($event['event'] == "client-submit_vote")
