@@ -34,9 +34,13 @@
       error_log("Received: " . var_dump_err($event) . "\n");
       if ($event['event'] == "client-submit_phrase")
       {
+        $submission = $mysqli->real_escape_string($data['phrase']);
+        error_log("Client submission - " . $submission . "\n");
+
         $result = $mysqli->query("SELECT * FROM suggestions WHERE
-          threewords = '" . $mysqli->real_escape_string($data['phrase'])
-          . "'");
+          threewords = '" . $submission . "'");
+
+        error_log("Got a result: " . var_dump_err($result) . "\n");
 
         if ($result->num_rows > 0)
         {
@@ -46,8 +50,12 @@
         }
         else
         {
-          $mysqli->query("INSERT INTO suggestions VALUES(NULL, " .
-            $mysqli->real_escape_string($data['phrase']) . ", 1)");
+          error_log("Nothing found....\n");
+          $query = "INSERT INTO suggestions VALUES(NULL, '" .
+            $mysqli->real_escape_string($data['phrase']) ."', 1)";
+
+          error_log(var_dump_err("About to run " . $query . "\n"));
+          $mysqli->query($query);
         }
       }
       else if ($event['event'] == "client-submit_vote")

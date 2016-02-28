@@ -43,16 +43,18 @@
     $sentence = GetSentence() . " ";
     while(str_word_count($sentence) < 30)
     {
-      SendToClients('new_phrase', "{'phrase': '" . $sentence . "'}");
+      $out = array("phrase" => $sentence);
+      SendToClients('new_phrase', json_encode($out));
       sleep(10);
       $request = $mysqli->query("SELECT * FROM suggestions");
-      $suggestions = array("suggessions" => array());
+      $suggestions = array();
       while ($row = $request->fetch_array(MYSQLI_ASSOC))
       {
-        $suggestions['suggestions'][$row['id']] = $row['threewords'];
+        $id = (int)($row['id']);
+        $suggestions[$id] = $row['threewords'];
       }
 
-      SendToClients('vote_request', json_encode($suggestions));
+      SendToClients('vote_request', json_encode(array("suggestions" => $suggestions), JSON_NUMERIC_CHECK));
       sleep(10);
 
       $result = $mysqli->query("SELECT * FROM suggestions ORDER BY count
@@ -74,9 +76,11 @@
         );
 
       sleep(5);
+      // We've had all the suggestions for this round.
+      $mysqli->query("TRUNCATE table suggestions");
     }
-    // Sentence complete. Store it, clear the DB out and start over!
-    $mysqli->query("TRUNCATE table suggestions");
+
+    // Sentence complete. Store it!
     $mysqli->query("INSERT INTO stories VALUES(NULL, NULL, '" .
       $mysqli->real_escape_string($sentence) . "')");
   }
