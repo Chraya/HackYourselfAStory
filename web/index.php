@@ -19,14 +19,23 @@
       var channel = null;
       var presenceChannel = null;
       var pusherEndpoint = 'https://api.pusherapp.com/apps/<?=PUSHER_APP_ID; ?>/events';
+      var interval = null;
 
       var voted = false;
 
       function decrementTimer()
       {
-        if ($('#countdownTimer').html() != '0')
+        if ($('#countdownTimer').html() == '0')
+          clearInterval(interval);
+        else
           $('#countdownTimer').html(parseInt($('#countdownTimer').html(),
             10) - 1);
+      }
+
+      function setUpTimer(time)
+      {
+        $('#countdownTimer').html(time);
+        interval = setInterval(decrementTimer, 1000);
       }
 
       function customGrowl(text)
@@ -141,19 +150,19 @@
         channel = pusher.subscribe('<?=PUSHER_CHANNEL; ?>');
         channel.bind('new_phrase', function(data)
         {
-          $('#countdownTimer').html('10');
+          setUpTimer('10');
           newPhrase(data);
           console.log(data);
         });
         channel.bind('vote_result', function(data)
         {
-          $('#countdownTimer').html('5');
+          setUpTimer('5');
           voteResult(data);
           console.log(data);
         });
         channel.bind('vote_request', function(data)
         {
-          $('#countdownTimer').html('10');
+          setUpTimer('10');
           voteRequest(data);
           console.log(data);
         });
