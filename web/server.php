@@ -49,10 +49,10 @@
       $suggestions = array();
       while ($row = $request->fetch_array(MYSQLI_ASSOC))
       {
-        $suggestions[intval($row['id'])] = $row['threewords'];
+        $suggestions[] = $row['threewords'];
       }
 
-      SendToClients('vote_request', json_encode("suggestions" => $suggestions));
+      SendToClients('vote_request', json_encode(array("suggestions" => $suggestions)));
       sleep(10);
 
       $result = $mysqli->query("SELECT * FROM suggestions ORDER BY count
