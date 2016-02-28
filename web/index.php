@@ -22,6 +22,13 @@
 
       var voted = false;
 
+      function decrementTimer()
+      {
+        if ($('#countdownTimer').html() != '0')
+          $('#countdownTimer').html(parseInt($('#countdownTimer').html(),
+            10) - 1);
+      }
+
       function customGrowl(text)
       {
         $.bootstrapGrowl(text,
@@ -134,20 +141,23 @@
         channel = pusher.subscribe('<?=PUSHER_CHANNEL; ?>');
         channel.bind('new_phrase', function(data)
         {
+          $('#countdownTimer').html('10');
           newPhrase(data);
           console.log(data);
         });
         channel.bind('vote_result', function(data)
         {
+          $('#countdownTimer').html('5');
           voteResult(data);
           console.log(data);
         });
         channel.bind('vote_request', function(data)
         {
+          $('#countdownTimer').html('10');
           voteRequest(data);
           console.log(data);
         });
-
+        
         customGrowl("Welcome, " + name + "!");
 
         presenceChannel = pusher.subscribe('presence-threewords');
@@ -198,34 +208,36 @@
   <body>
     <nav class="navbar navbar-dark navbar-fixed-top navbar-transparent navbar-inner">
       <div class="container">
-        <a class="navbar-brand">Hack Yourself a Story!</a>
-        <ul class="nav navbar-nav pull-right">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home</a>
-            <li class="nav-item active">
-              <a class="nav-link" href="profile.html">About Us</a>
-            </li>
+        <ul class="nav navbar-nav">
+          <li class="active"><a class="navbar-brand" href="/">Hack Yourself a Story!</a></li>
+          <li>Time Remaining:</li>
+          <li><span id="countdownTimer">0</span></li>
         </ul>
       </div>
     </nav>
     <div class="container">
       <div class="jumbotron">
+        <h2>Current Story</h2>
         <h3 id="StoryPlaceholder"></h3>
       </div>
     </div>
     <div class= "container">
       <div class="jumbotron">
           <div class="container">
+            <h3>
+              Suggest your own three word phrase below, then vote for
+              the funniest by clicking
+            </h3>
             <div id="voteLinkDiv"></div>
           </div>
       </div>
     </div>
-    <div>
+    <div class="container">
       <div class="jumbotron">
         <h4><span id="onlineCount">0</span> people online.</h4>
       </div>
     </div>
-    <div class= "container align-middle align-bottom">
+    <div class="container align-middle align-bottom">
       <i class="fa fa-facebook"></i>
       <i class="fa fa-github"></i>
     </div>
