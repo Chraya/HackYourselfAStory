@@ -21,6 +21,21 @@
 
       var voted = false;
 
+      function customGrowl(text)
+      {
+        $.bootstrapGrowl(text,
+        {
+          ele: 'body',
+          type: 'success',
+          offset: { from: 'top', amount: 60 },
+          align: 'right',
+          width: 250,
+          delay: 3000,
+          allow_dismiss: true,
+          stackup_spacing: 10
+        });
+      }
+
       $(document).ready(function()
       {
         $('body').on('click', '.voteLink', function(event)
@@ -132,19 +147,34 @@
           console.log(data);
         });
 
-        $.bootstrapGrowl("Welcome, " + name + "!",
-        {
-          ele: 'body',
-          type: 'success',
-          offset: { from: 'top', amount: 60 },
-          align: 'right',
-          width: 250,
-          delay: 3000,
-          allow_dismiss: true,
-          stackup_spacing: 10
-        });
-      }
+        customGrowl("Welcome, " + name + "!");
 
+        var presenceChannel = pusher.subscribe('presence-threewords');
+        presenceChannel.bind('pusher:subscription_succeeded', function(members)
+        {
+          ('#onlineCount').html("0");
+          members.each(function(member)
+          {
+            $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) + 1);
+            console.log(member);
+          });
+        });
+
+        channel.bind('pusher:member_added', function(member)
+        {
+          customGrowl(member + " has come online");
+          console.log(member + " came online");
+          $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) + 1);
+        });
+
+        channel.bind('pusher:member_removed', function(member)
+        {
+          customGrowl(member + " has left");
+          console.log(member + " left");
+          $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) - 1);
+        });
+
+      }
 
       $(document).ready(function()
       {
@@ -219,7 +249,8 @@
     </div>
     <div>
       <div class = "jumbotron">
-        <i class="fa fa-facebook"></i>
+        <i class="fa fa-facebook"></i><br>
+        <h4><span id="onlineCount">0</span> people online.</h4>
       </div>
     </div>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
