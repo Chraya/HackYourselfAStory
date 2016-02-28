@@ -26,10 +26,13 @@
           event.preventDefault();
           submitVoteToServer(event.target.id);
         });
+
         $('#phraseInputSubmit').click(function(event)
         {
           event.preventDefault();
-          submitPhraseToServer($('#phraseInputBox').val());
+          var entry = $('#phraseInputBox').val();
+          console.log("User entered: " + entry);
+          submitPhraseToServer(entry);
           $('#phraseInputSubmit').attr('disabled', true);
         });
       });
