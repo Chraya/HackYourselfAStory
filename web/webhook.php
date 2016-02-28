@@ -32,7 +32,7 @@
     {
       $data = json_decode($event['data'], true);
       error_log("Received: " . var_dump_err($event) . "\n");
-      if ($event['event_name'] == "client-submit_phrase")
+      if ($event['event'] == "client-submit_phrase")
       {
         $result = $mysqli->query("SELECT * FROM suggestions WHERE
           threewords = '" . $mysqli->real_escape_string($data['phrase'])
@@ -50,7 +50,7 @@
             $mysqli->real_escape_string($event['data']['phrase']) . ", 1)");
         }
       }
-      else if ($event['event_name'] == "client-submit_vote")
+      else if ($event['event'] == "client-submit_vote")
       {
         $mysqli->query("UPDATE suggestions SET `count` = `count` + 1" .
         " WHERE `id` = " . $event['data']['phraseid']);
