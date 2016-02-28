@@ -285,7 +285,7 @@
     <nav class="navbar navbar-dark navbar-fixed-top navbar-transparent navbar-inner">
       <div class="container">
         <ul class="nav navbar-nav">
-          <li class="active"><a class="navbar-brand" href="/">Hack Yourself a Story!</a></li>
+          <li class="active"><a class="navbar-brand" href="/">Tales Against Humanity!</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a>Time Remaining:</a></li>
@@ -295,7 +295,7 @@
     </nav>
     <div class="container">
       <div class="jumbotron">
-        <h2>Current Story</h2>
+        <h2>Current Tale...</h2>
         <h3 id="StoryPlaceholder"></h3>
       </div>
     </div>
@@ -304,7 +304,8 @@
           <div class="container">
             <h3>
               Suggest your own three word phrase below, then vote for
-              the funniest by clicking on it.
+              the funniest by clicking on it. Collectively hack yourself
+              a story together! 
             </h3>
             <div id="voteLinkDiv"></div>
           </div>
