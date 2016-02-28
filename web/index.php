@@ -24,9 +24,7 @@
       function newPhrase(data)
       {
         // When the server sends out a new phrase
-        console.log(data);
         var obj = JSON.parse(data);
-        console.dir(obj);
         $('#StoryPlaceholder').html(obj['phrase']);
       }
 
@@ -38,6 +36,8 @@
       function voteRequest(data)
       {
         // When the server asks the users to vote (thus delivering all vote options)
+        var obj = JSON.parse(data);
+        console.dir(obj);
       }
 
       function submitPhraseToServer(phrase)
