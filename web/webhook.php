@@ -21,7 +21,7 @@
   {
     error_log("Signature check succeeded\n");
 
-    $payload = json_decode($body, true);
+    $payload = json_decode(stripslashes($body), true);
     error_log(var_dump_err($payload));
 
     $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
