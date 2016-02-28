@@ -37,6 +37,18 @@
     return $data['text'];
   }
 
+  function LockClients()
+  {
+    $lock = array("action" => "lock");
+    SendToClients("lock_unlock", json_encode($lock));
+  }
+
+  function UnlockClients()
+  {
+    $unlock = array("action" => "unlock");
+    SendToClients("lock_unlock", json_encode($unlock));
+  }
+
   while(1)
   {
     global $mysqli;
@@ -45,7 +57,9 @@
     {
       $out = array("phrase" => $sentence);
       SendToClients('new_phrase', json_encode($out));
+      UnlockClients();
       sleep(10);
+      LockClients();
       $request = $mysqli->query("SELECT * FROM suggestions");
       $suggestions = array();
       while ($row = $request->fetch_array(MYSQLI_ASSOC))
@@ -55,8 +69,9 @@
       }
 
       SendToClients('vote_request', json_encode(array("suggestions" => $suggestions), JSON_NUMERIC_CHECK));
+      UnlockClients();
       sleep(10);
-
+      LockClients();
       $result = $mysqli->query("SELECT * FROM suggestions ORDER BY count
         DESC LIMIT 1");
 
@@ -74,7 +89,6 @@
             )
           )
         );
-
       sleep(5);
       // We've had all the suggestions for this round.
       $mysqli->query("TRUNCATE table suggestions");

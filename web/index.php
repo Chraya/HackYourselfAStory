@@ -25,11 +25,16 @@
 
       function decrementTimer()
       {
-        if ($('#countdownTimer').html() == '0')
+        if ($('#countdownTimer').html() <= '0')
+        {
           clearInterval(interval);
+          interval = null;
+        }
         else
+        {
           $('#countdownTimer').html(parseInt($('#countdownTimer').html(),
             10) - 1);
+        }
       }
 
       function setUpTimer(time)
@@ -166,6 +171,18 @@
           voteRequest(data);
           console.log(data);
         });
+        channel.bind('lock_unlock', function(data)
+        {
+          var obj = JSON.parse(data);
+          if (obj['action'] == "lock")
+          {
+            $('#controlArea').attr('disabled', true);
+          }
+          else
+          {
+            $('#controlArea').removeAttr('disabled');
+          }
+        });
 
         customGrowl("Welcome, " + name + "!");
 
@@ -244,7 +261,7 @@
       </div>
     </div>
     <div class= "container">
-      <div class="jumbotron">
+      <div class="jumbotron" id="controlArea">
           <div class="container">
             <h3>
               Suggest your own three word phrase below, then vote for
