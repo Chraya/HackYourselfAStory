@@ -249,6 +249,15 @@
             login();
         });
       });
+      $('#nicknameForm').on('keyup keypress', function(e)
+      {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13)
+        {
+          e.preventDefault();
+          return false;
+        }
+      });
 
       Pusher.log = function(message)
       {
@@ -309,7 +318,7 @@
             <div class="container">
               <h2>Please choose a nickname</h2>
               <div class="col-md-12">
-                <form class="form-inline">
+                <form class="form-inline" id="nicknameForm">
                   <div class="form-group">
                     <input type="text" id="nickname" maxlength="64" class="form-control" placeholder="Enter a Nickname" />
                   </div>
