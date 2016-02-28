@@ -212,11 +212,11 @@
       <div class="container">
         <ul class="nav navbar-nav">
           <li class="active"><a class="navbar-brand" href="/">Hack Yourself a Story!</a></li>
-          <div class="navbar-right">
-            <li><a>Time Remaining:</a></li>
-            <li><a><span id="countdownTimer">0</span></a></li>
-          </div>
         </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a>Time Remaining:</a></li>
+          <li><a><span id="countdownTimer">0</span> seconds</a></li>
+        </div>
       </div>
     </nav>
     <div class="container">
