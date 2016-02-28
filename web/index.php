@@ -178,19 +178,19 @@
         channel = pusher.subscribe('<?=PUSHER_CHANNEL; ?>');
         channel.bind('new_phrase', function(data)
         {
-          setUpTimer('10');
+          setUpTimer('13');
           newPhrase(data);
           console.log(data);
         });
         channel.bind('vote_result', function(data)
         {
-          setUpTimer('5');
+          setUpTimer('2');
           voteResult(data);
           console.log(data);
         });
         channel.bind('vote_request', function(data)
         {
-          setUpTimer('10');
+          setUpTimer('8');
           voteRequest(data);
           console.log(data);
         });

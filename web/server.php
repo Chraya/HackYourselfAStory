@@ -58,7 +58,7 @@
       $out = array("phrase" => $sentence);
       SendToClients('new_phrase', json_encode($out));
       UnlockClients();
-      sleep(10);
+      sleep(13);
       LockClients();
       $request = $mysqli->query("SELECT * FROM suggestions");
       $suggestions = array();
@@ -67,10 +67,10 @@
         $id = (int)($row['id']);
         $suggestions[$id] = $row['threewords'];
       }
-      
+
       SendToClients('vote_request', json_encode(array("suggestions" => $suggestions), JSON_NUMERIC_CHECK));
       UnlockClients();
-      sleep(10);
+      sleep(8);
       LockClients();
       $result = $mysqli->query("SELECT * FROM suggestions ORDER BY count
         DESC LIMIT 1");
@@ -89,7 +89,7 @@
             )
           )
         );
-      sleep(5);
+      sleep(2);
       // We've had all the suggestions for this round.
       $mysqli->query("TRUNCATE table suggestions");
     }
