@@ -54,7 +54,7 @@
           $query = "INSERT INTO suggestions VALUES(NULL, " .
             $mysqli->real_escape_string($data['phrase']) . ", 1)";
 
-          erro_log(var_dump_err("About to run " . $query . "\n"));
+          error_log(var_dump_err("About to run " . $query . "\n"));
           $mysqli->query($query);
         }
       }
