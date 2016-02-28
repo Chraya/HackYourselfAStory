@@ -1,6 +1,13 @@
 <?php
   require(dirname(__FILE__) . "/inc/config.inc.php");
 
+  function var_dump_err($someVar)
+  {
+    ob_start();
+    var_dump($someVar);
+    $result = ob_get_clean();
+  }
+
   $app_key = $_SERVER['HTTP_X_PUSHER_KEY'];
   $webhook_signature = $_SERVER['HTTP_X_PUSHER_SIGNATURE'];
 
@@ -15,15 +22,14 @@
     error_log("Signature check succeeded\n");
 
     $payload = json_decode($body, true);
-    error_log($payload . "\n");
-    error_log("Payload dump: " . var_dump($payload) . "\n");
+    error_log(var_dump_err($payload));
 
     $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
     foreach($payload['events'] as $event)
     {
       $data = json_decode($event['data'], true);
-      error_log("Received: " . var_dump($event) . "\n");
+      error_log("Received: " . var_dump_err($event) . "\n");
       if ($event['event_name'] == "client-submit_phrase")
       {
         $result = $mysqli->query("SELECT * FROM suggestions WHERE
