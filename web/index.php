@@ -7,8 +7,6 @@
     <title>Hack Yourself a Story</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="css/font-awesome-4.5.0.css" rel="stylesheet">
-    <link href="css/font-awesome-4.5.0.min.css" rel="stylesheet">
     <link href="css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -67,6 +65,14 @@
           console.log("User entered: " + entry);
           submitPhraseToServer(entry);
           $('#phraseInputSubmit').attr('disabled', true);
+        });
+
+        $('#loginModal').on('hidden.bs.modal', function()
+        {
+          if (name == null || name == "" || name == undefined)
+          {
+            $('#loginModal').modal('show');
+          }
         });
       });
 
