@@ -26,7 +26,7 @@
         // When the server sends out a new phrase
         console.log(data);
         var obj = JSON.parse(data);
-        console.dump(obj);
+        console.dir(obj);
         $('#StoryPlaceholder').html(obj['phrase']);
       }
 
