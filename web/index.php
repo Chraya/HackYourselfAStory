@@ -215,7 +215,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a>Time Remaining:</a></li>
-          <li><a><span id="countdownTimer">0</span></a></li>
+          <li><a><span id="countdownTimer">0</span> seconds</a></li>
         </div>
       </div>
     </nav>
