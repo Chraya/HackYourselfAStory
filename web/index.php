@@ -192,7 +192,8 @@
         $('#loginModal').on('hidden.bs.modal', function(e)
         {
           console.log("Closed that thing. Name is" + name);
-          if (name == null || name == "" || name == undefined)
+          if (name == null || name == "" || name == undefined
+            || name == "null" || name == "undefined")
           {
             $('#loginModal').modal('show');
           }
