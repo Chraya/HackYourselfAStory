@@ -6,6 +6,7 @@
     ob_start();
     var_dump($someVar);
     $result = ob_get_clean();
+    return $result;
   }
 
   $app_key = $_SERVER['HTTP_X_PUSHER_KEY'];
