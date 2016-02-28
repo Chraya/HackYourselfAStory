@@ -153,7 +153,7 @@
         presenceChannel = pusher.subscribe('presence-threewords');
         presenceChannel.bind('pusher:subscription_succeeded', function(members)
         {
-          ('#onlineCount').html("0");
+          $('#onlineCount').html("0");
           members.each(function(member)
           {
             $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) + 1);
