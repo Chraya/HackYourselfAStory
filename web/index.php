@@ -21,13 +21,13 @@
 
       $(document).ready(function()
       {
-        $('a').on('click', 'a.voteLink', function(event)
+        $('body').on('click', '.voteLink', function(event)
         {
           event.preventDefault();
           submitVoteToServer(event.target.id);
         });
 
-        $('button').on('click', 'button.phraseInputSubmit', function(event)
+        $('body').on('click', '#phraseInputSubmit', function(event)
         {
           event.preventDefault();
           var entry = $('#phraseInputBox').val();
@@ -46,7 +46,7 @@
         <form id="phraseForm" class="form-inline">                            \
           <div class="form-group">                                            \
             <input type="text" class="form-control" id="phraseInputBox" />    \
-            <button type="button" class="form-control phraseInputSubmit btn">\
+            <button type="button" class="form-control" id="phraseInputSubmit">\
               Suggest &raquo;                                                 \
             </button>                                                         \
           </div>                                                              \
