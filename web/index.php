@@ -132,7 +132,7 @@
         var html = "// ";
         for (var key in suggestions)
         {
-          html = html + '<button id="' + key + '" class="voteLink btn btn-sm">'
+          html = html + '<button id="' + key + '" class="voteLink btn btn-default btn-sm">'
             + suggestions[key] + '</button> // ';
         }
         $('#voteLinkDiv').html(html);
