@@ -75,13 +75,14 @@
 
       function submitPhraseToServer(phrase)
       {
+        console.log("Sending this phrase: " + phrase);
         var triggered = channel.trigger('client-submit_phrase',
           { 'phrase' : phrase });
       }
 
       function submitVoteToServer(phraseId)
       {
-        var triggered = channel.trigger('client-submit_phrase',
+        var triggered = channel.trigger('client-submit_vote',
           { 'phraseid' : phraseid });
       }
 
