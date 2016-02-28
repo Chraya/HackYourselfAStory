@@ -60,6 +60,7 @@
       UnlockClients();
       sleep(13);
       LockClients();
+      sleep(2);
       $request = $mysqli->query("SELECT * FROM suggestions");
       $suggestions = array();
       while ($row = $request->fetch_array(MYSQLI_ASSOC))
@@ -72,6 +73,7 @@
       UnlockClients();
       sleep(8);
       LockClients();
+      sleep(2);
       $result = $mysqli->query("SELECT * FROM suggestions ORDER BY count
         DESC LIMIT 1");
 
