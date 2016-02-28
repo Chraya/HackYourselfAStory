@@ -7,7 +7,6 @@
     <title>Hack Yourself a Story</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
-    <link href="css/font-awesome-4.5.0.css" rel="stylesheet">
     <link href="css/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
@@ -27,6 +26,11 @@
           event.preventDefault();
           submitVoteToServer(event.target.id);
         });
+        $('#phraseInputSubmit').click(function(event)
+        {
+          event.preventDefault();
+          submitPhraseToServer($('#phraseInputBox').val());
+        });
       });
 
       function newPhrase(data)
@@ -34,11 +38,23 @@
         // When the server sends out a new phrase
         var obj = JSON.parse(data);
         $('#StoryPlaceholder').html(obj['phrase']);
+        $('#voteLinkDiv').html('                                              \
+        <form id="phraseForm" class="form-inline">                            \
+          <div class="form-group">                                            \
+            <input type="text" class="form-control" id="phraseInputBox" />    \
+            <button type="button" id="phraseInputSubmit" class="form-control">\
+              Suggest &raquo;                                                 \
+            </button>                                                         \
+          </div>                                                              \
+        </form>                                                               \
+        ');
       }
 
       function voteResult(data)
       {
         // When the server delivers the vote result
+        var obj = JSON.parse(data);
+        $('#voteLinkDiv').html("<h3>The winning phrase was: " + obj['winningtext'] + "</h3>");
       }
 
       function voteRequest(data)
