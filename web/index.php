@@ -252,7 +252,7 @@
     </div>
     <div class="container align-middle align-bottom">
       <i class="fa fa-facebook" style="font-size:48px"></i>
-      <i class="fa fa-github"></i>
+      <i class="fa fa-github" style="font-size:48px"></i>
     </div>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
