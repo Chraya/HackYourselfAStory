@@ -49,7 +49,7 @@
       $suggestions = array("suggessions" => array());
       while ($row = $request->fetch_array(MYSQLI_ASSOC))
       {
-        $suggestions['suggestions'][$row['id']] = $row['threewords'];
+        $suggestions['suggestions'][(int)($row['id'])] = $row['threewords'];
       }
 
       SendToClients('vote_request', json_encode($suggestions));
