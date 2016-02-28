@@ -122,7 +122,7 @@
         var obj = JSON.parse(data);
         if (obj['winningtext'] == null || obj['winningtext'] == "")
         {
-          $('#voteLinkDiv').html("<h3>No phrases were submitted, so there was no winner</h3>");
+          $('#voteLinkDiv').html("<h3>No phrases were submitted, so there was no winner.</h3>");
         }
         else
         {
