@@ -50,8 +50,8 @@
         var html = "";
         for (var key in suggestions)
         {
-          html = html + '<a id="' + key + '" class="voteLink">'
-            + suggestions[key] + '</a>';
+          html = html + '<a href="#" id="' + key + '" class="voteLink">'
+            + suggestions[key] + '</a><br>';
         }
         $('#voteLinkDiv').html(html);
       }
