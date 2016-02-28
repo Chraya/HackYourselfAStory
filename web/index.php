@@ -249,9 +249,12 @@
     </div>
     <div>
       <div class = "jumbotron">
-        <i class="fa fa-facebook"></i><br>
         <h4><span id="onlineCount">0</span> people online.</h4>
       </div>
+    </div>
+    <div class= "container align-middle align-bottom">
+      <i class="fa fa-facebook"></i>
+      <i class="fa fa-github"></i>
     </div>
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
