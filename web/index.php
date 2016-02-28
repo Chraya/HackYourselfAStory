@@ -212,8 +212,10 @@
       <div class="container">
         <ul class="nav navbar-nav">
           <li class="active"><a class="navbar-brand" href="/">Hack Yourself a Story!</a></li>
-          <li>Time Remaining:</li>
-          <li><span id="countdownTimer">0</span></li>
+          <div class="navbar-right">
+            <li><a>Time Remaining:</a></li>
+            <li><a><span id="countdownTimer">0</span></a></li>
+          </div>
         </ul>
       </div>
     </nav>
@@ -228,7 +230,7 @@
           <div class="container">
             <h3>
               Suggest your own three word phrase below, then vote for
-              the funniest by clicking
+              the funniest by clicking on it.
             </h3>
             <div id="voteLinkDiv"></div>
           </div>
