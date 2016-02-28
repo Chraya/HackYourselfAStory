@@ -206,9 +206,9 @@
         <a class="navbar-brand">Hack Yourself a Story!</a>
         <ul class="nav navbar-nav pull-right">
           <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="index.php">Home</a>
             <li class="nav-item active">
-              <a class="nav-link" href="profile.html">About Us</a>
+              <a class="nav-link" href="aboutus.html">About Us</a>
             </li>
         </ul>
       </div>
