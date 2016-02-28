@@ -19,7 +19,7 @@
       var pusher = null;
       var name = null;
       var channel = null;
-      var pusherEndpoint = 'https://api.pusherapp.com/apps/<?=PUSHER_APP_ID; ?>;/events';
+      var pusherEndpoint = 'https://api.pusherapp.com/apps/<?=PUSHER_APP_ID; ?>/events';
 
 
       function newPhrase(data)

@@ -1,6 +1,14 @@
 <?php
   require(dirname(__FILE__) . "/inc/config.inc.php");
 
+  function var_dump_err($someVar)
+  {
+    ob_start();
+    var_dump($someVar);
+    $result = ob_get_clean();
+    return $result;
+  }
+
   $app_key = $_SERVER['HTTP_X_PUSHER_KEY'];
   $webhook_signature = $_SERVER['HTTP_X_PUSHER_SIGNATURE'];
 
@@ -15,18 +23,19 @@
     error_log("Signature check succeeded\n");
 
     $payload = json_decode($body, true);
-
-    error_log("Payload dump: " . var_dump($payload) . "\n");
+    error_log("JSON Error: " . json_last_error_msg() . "\n");
+    error_log(var_dump_err($payload));
 
     $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-    foreach($payload['events'] as $event)
+    foreach($payload['events'] as &$event)
     {
-      error_log("Received: " . var_dump($event) . "\n");
-      if ($event['event_name'] == "client-submit_phrase")
+      $data = json_decode($event['data'], true);
+      error_log("Received: " . var_dump_err($event) . "\n");
+      if ($event['event'] == "client-submit_phrase")
       {
         $result = $mysqli->query("SELECT * FROM suggestions WHERE
-          threewords = '" . $mysqli->real_escape_string($event['phrase'])
+          threewords = '" . $mysqli->real_escape_string($data['phrase'])
           . "'");
 
         if ($result->num_rows > 0)
@@ -38,13 +47,13 @@
         else
         {
           $mysqli->query("INSERT INTO suggestions VALUES(NULL, " .
-            $mysqli->real_escape_string($event['phrase']) . ", 1)");
+            $mysqli->real_escape_string($data['phrase']) . ", 1)");
         }
       }
-      else if ($event['event_name'] == "client-submit_vote")
+      else if ($event['event'] == "client-submit_vote")
       {
         $mysqli->query("UPDATE suggestions SET `count` = `count` + 1" .
-        " WHERE `id` = " . $event['phraseid']);
+        " WHERE `id` = " . $event['data']['phraseid']);
       }
     }
 
