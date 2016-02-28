@@ -47,7 +47,7 @@
         else
         {
           $mysqli->query("INSERT INTO suggestions VALUES(NULL, " .
-            $mysqli->real_escape_string($event['data']['phrase']) . ", 1)");
+            $mysqli->real_escape_string($data['phrase']) . ", 1)");
         }
       }
       else if ($event['event'] == "client-submit_vote")
