@@ -30,6 +30,7 @@
         {
           event.preventDefault();
           submitPhraseToServer($('#phraseInputBox').val());
+          $('#phraseInputSubmit').attr('disabled', true);
         });
       });
 
