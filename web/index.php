@@ -157,21 +157,21 @@
           members.each(function(member)
           {
             $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) + 1);
-            console.log(member.id);
+            console.log(member['user_id']);
           });
         });
 
         presenceChannel.bind('pusher:member_added', function(member)
         {
-          customGrowl(member.id + " has come online");
-          console.log(member.id + " came online");
+          customGrowl(member['user_id'] + " has come online");
+          console.log(member['user_id'] + " came online");
           $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) + 1);
         });
 
         presenceChannel.bind('pusher:member_removed', function(member)
         {
-          customGrowl(member.id + " has left");
-          console.log(member.id + " left");
+          customGrowl(member['user_id'] + " has left");
+          console.log(member['user_id'] + " left");
           $('#onlineCount').html(parseInt($('#onlineCount').html(), 10) - 1);
         });
       }
