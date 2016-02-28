@@ -75,6 +75,10 @@
 
       sleep(5);
     }
+    // Sentence complete. Store it, clear the DB out and start over!
+    $mysqli->query("TRUNCATE table suggestions");
+    $mysqli->query("INSERT INTO stories VALUES(NULL, NULL, '" .
+      $mysqli->real_escape_string($sentence) . "')");
   }
 
 
