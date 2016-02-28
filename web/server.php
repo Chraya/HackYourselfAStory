@@ -43,7 +43,8 @@
     $sentence = GetSentence() . " ";
     while(str_word_count($sentence) < 30)
     {
-      SendToClients('new_phrase', "{'phrase': '" . $sentence . "'}");
+      $out = array("phrase" => $sentence);
+      SendToClients('new_phrase', json_encode($out));
       sleep(10);
       $request = $mysqli->query("SELECT * FROM suggestions");
       $suggestions = array();
