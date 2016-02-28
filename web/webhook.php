@@ -52,7 +52,7 @@
         {
           error_log("Nothing found....\n");
           $query = "INSERT INTO suggestions VALUES(NULL, '" .
-            $mysqli->real_escape_string($data['phrase']) .' ", 1)";
+            $mysqli->real_escape_string($data['phrase']) ."', 1)";
 
           error_log(var_dump_err("About to run " . $query . "\n"));
           $mysqli->query($query);
