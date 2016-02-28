@@ -34,6 +34,8 @@
       error_log("Received: " . var_dump_err($event) . "\n");
       if ($event['event'] == "client-submit_phrase")
       {
+        error_log("Client submission - " . $data['phrase'] . "\n");
+
         $result = $mysqli->query("SELECT * FROM suggestions WHERE
           threewords = '" . $mysqli->real_escape_string($data['phrase'])
           . "'");
