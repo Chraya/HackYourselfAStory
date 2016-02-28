@@ -217,6 +217,7 @@
 
         presenceChannel.bind('pusher:member_added', function(member)
         {
+          console.dir(member);
           customGrowl(member['user_id'] + " has come online");
           console.log(member['user_id'] + " came online");
           if (member['user_id'] != name)
