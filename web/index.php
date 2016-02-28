@@ -19,6 +19,8 @@
       var channel = null;
       var pusherEndpoint = 'https://api.pusherapp.com/apps/<?=PUSHER_APP_ID; ?>/events';
 
+      var voted = false;
+
       $(document).ready(function()
       {
         $('body').on('click', '.voteLink', function(event)
@@ -26,7 +28,11 @@
           event.preventDefault();
           var id = event.target.id;
           console.log("Voting for " + id);
-          submitVoteToServer(id);
+          if(!voted)
+          {
+            submitVoteToServer(id);
+            voted = true;
+          }
         });
 
         $('body').on('click', '#phraseInputSubmit', function(event)
@@ -54,6 +60,7 @@
           </div>                                                              \
         </form>                                                               \
         ');
+        voted = false;
       }
 
       function voteResult(data)
