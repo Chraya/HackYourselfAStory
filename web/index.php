@@ -21,13 +21,13 @@
 
       $(document).ready(function()
       {
-        $('.voteLink').click(function(event)
+        $('a').on('click', '.voteLink', function(event)
         {
           event.preventDefault();
           submitVoteToServer(event.target.id);
         });
 
-        $('#phraseInputSubmit').click(function(event)
+        $('button').on('click', '#phraseInputSubmit', function(event)
         {
           event.preventDefault();
           var entry = $('#phraseInputBox').val();
