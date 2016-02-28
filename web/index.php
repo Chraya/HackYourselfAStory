@@ -120,7 +120,14 @@
       {
         // When the server delivers the vote result
         var obj = JSON.parse(data);
-        $('#voteLinkDiv').html("<h3>The winning phrase was: " + obj['winningtext'] + "</h3>");
+        if (obj['winningtext'] == null || obj['winningtext'] == "")
+        {
+          $('#voteLinkDiv').html("<h3>No phrases were submitted, so there was no winner</h3>");
+        }
+        else
+        {
+          $('#voteLinkDiv').html("<h3>The winning phrase was: " + obj['winningtext'] + "</h3>");
+        }
       }
 
       function voteRequest(data)

@@ -67,7 +67,7 @@
         $id = (int)($row['id']);
         $suggestions[$id] = $row['threewords'];
       }
-
+      
       SendToClients('vote_request', json_encode(array("suggestions" => $suggestions), JSON_NUMERIC_CHECK));
       UnlockClients();
       sleep(10);
